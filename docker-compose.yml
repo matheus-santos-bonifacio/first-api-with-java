@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: started_java_apirestfull
+    profiles: ["dev", "dev-backend", "deploy", "database"]
+    ports:
+      - 3309:3306
+    volumes:
+      - started_java_apirestfull:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: java
+      MYSQL_DATABASE: started_java_apirestfull
+
+volumes:
+  started_java_apirestfull:
